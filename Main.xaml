@@ -1,0 +1,274 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_FieldMappings="Name=Name;Salary=Salary;Phone=Phone" this:Main.in_KeyColumnB="EmployeeID" this:Main.in_KeyColumnA="EmployeeID" this:Main.in_SourceBPath="C:\Users\Dell\Documents\UiPath\DataGuard\Input\HR_Data.xlsx" this:Main.in_SourceAPath="C:\Users\Dell\Documents\UiPath\DataGuard\Input\Master.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_FieldMappings" Type="InArgument(x:String)" />
+    <x:Property Name="in_KeyColumnB" Type="InArgument(x:String)" />
+    <x:Property Name="in_KeyColumnA" Type="InArgument(x:String)" />
+    <x:Property Name="in_ConfigPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_SourceBPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_SourceAPath" Type="InArgument(x:String)" />
+    <x:Property Name="out_ResultDataTable" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_TotalRecords" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_ExactMatches" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_Mismatches" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_MissingRecords" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_Duplicates" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_HighRisk" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_MediumRisk" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_LowRisk" Type="OutArgument(x:Int32)" />
+    <x:Property Name="out_StatusMessage" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ReportPath" Type="OutArgument(x:String)" />
+  </x:Members>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Models</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Runtime</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.MicrosoftOffice365.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DataGuard - Main Process" sap:VirtualizedContainerService.HintSize="774.6666666666666,2880.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_Main">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Int32" Name="lowRisk" />
+      <Variable x:TypeArguments="x:Int32" Name="mediumRisk" />
+      <Variable x:TypeArguments="x:Int32" Name="highRisk" />
+      <Variable x:TypeArguments="x:Int32" Name="duplicates" />
+      <Variable x:TypeArguments="x:Int32" Name="missingRecords" />
+      <Variable x:TypeArguments="x:Int32" Name="mismatches" />
+      <Variable x:TypeArguments="x:Int32" Name="exactMatches" />
+      <Variable x:TypeArguments="x:Int32" Name="totalRecords" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtMaster" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtHR" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtResult" />
+      <Variable x:TypeArguments="x:Int32" Name="totalIssues" />
+      <Variable x:TypeArguments="x:String" Name="reportPath" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[String.IsNullOrWhiteSpace(in_SourceAPath)]" DisplayName="Check: Master file selected?" sap:VirtualizedContainerService.HintSize="456,2858" sap2010:WorkflowViewState.IdRef="If_CheckMaster">
+      <If.Then>
+        <Assign DisplayName="Set Status: Master file missing" sap:VirtualizedContainerService.HintSize="454,144.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_MasterMissing">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[out_StatusMessage]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">Please select Master Data file.</InArgument>
+          </Assign.Value>
+        </Assign>
+      </If.Then>
+      <If.Else>
+        <If Condition="[String.IsNullOrWhiteSpace(in_SourceBPath)]" DisplayName="Check: HR file selected?" sap:VirtualizedContainerService.HintSize="454,2538.6666666666665" sap2010:WorkflowViewState.IdRef="If_CheckHR">
+          <If.Then>
+            <Assign DisplayName="Set Status: HR file missing" sap:VirtualizedContainerService.HintSize="452,144.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_HRMissing">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[out_StatusMessage]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">Please select HR Data file.</InArgument>
+              </Assign.Value>
+            </Assign>
+          </If.Then>
+          <If.Else>
+            <TryCatch DisplayName="Run Audit (with error handling)" sap:VirtualizedContainerService.HintSize="452,2242" sap2010:WorkflowViewState.IdRef="TryCatch_Audit">
+              <TryCatch.Try>
+                <Sequence DisplayName="Audit Sequence" sap:VirtualizedContainerService.HintSize="450,1927.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_Audit">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read Master Excel" sap:VirtualizedContainerService.HintSize="416,210" sap2010:WorkflowViewState.IdRef="Invoke_ReadMaster" UnSafe="False" WorkflowFileName="Workflows\ReadMaster.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[in_SourceAPath]</InArgument>
+                      <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTable">[dtMaster]</OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Read HR Excel" sap:VirtualizedContainerService.HintSize="416,210" sap2010:WorkflowViewState.IdRef="Invoke_ReadHR" UnSafe="False" WorkflowFileName="Workflows\ReadHR.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[in_SourceBPath]</InArgument>
+                      <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DataTable">[dtHR]</OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Compare Data" sap:VirtualizedContainerService.HintSize="416,210" sap2010:WorkflowViewState.IdRef="Invoke_CompareData" UnSafe="False" WorkflowFileName="Workflows\CompareData.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_FieldMappings">[in_FieldMappings]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_KeyColumnB">[in_KeyColumnB]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_KeyColumnA">[in_KeyColumnA]</InArgument>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_MasterData">[dtMaster]</InArgument>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_HRData">[dtHR]</InArgument>
+                      <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ResultDataTable">[dtResult]</OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Calculate Summary" sap:VirtualizedContainerService.HintSize="416,210" sap2010:WorkflowViewState.IdRef="Invoke_CalcSummary" UnSafe="False" WorkflowFileName="Workflows\CalculateSummary.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_Result">[dtResult]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_TotalRecords">[totalRecords]</InArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_TotalRecords">[totalRecords]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_ExactMatches">[exactMatches]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_Mismatches">[mismatches]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_MissingRecords">[missingRecords]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_Duplicates">[duplicates]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_HighRisk">[highRisk]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_MediumRisk">[mediumRisk]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="out_LowRisk">[lowRisk]</OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Generate Audit Report" sap:VirtualizedContainerService.HintSize="416,210" sap2010:WorkflowViewState.IdRef="Invoke_GenerateReport" UnSafe="False" WorkflowFileName="Workflows\GenerateReport.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_ResultDataTable">[dtResult]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ReportPath">C:\Users\Dell\Documents\UiPath\DataGuard\Output\Audit_Report.xlsx</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_TotalRecords">[totalRecords]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_ExactMatches">[exactMatches]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_Mismatches">[mismatches]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_MissingRecords">[missingRecords]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_Duplicates">[duplicates]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_HighRisk">[highRisk]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_MediumRisk">[mediumRisk]</InArgument>
+                      <InArgument x:TypeArguments="x:Int32" x:Key="in_LowRisk">[lowRisk]</InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_ReportPath">[reportPath]</OutArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                  </ui:InvokeWorkflowFile>
+                  <Assign DisplayName="Assign Final Result Table" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_FinalResult">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="sd:DataTable">[out_ResultDataTable]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="sd:DataTable">[dtResult]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Calculate Total Issues" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_TotalIssues">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[totalIssues]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[out_Mismatches + out_MissingRecords + out_Duplicates]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If Condition="[totalIssues = 0]" DisplayName="Check: Any issues found?" sap:VirtualizedContainerService.HintSize="416,464" sap2010:WorkflowViewState.IdRef="If_AnyIssues">
+                    <If.Then>
+                      <Assign DisplayName="Set Status: No issues" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_NoIssues">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[out_StatusMessage]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">No data inconsistencies found.</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Then>
+                    <If.Else>
+                      <Assign DisplayName="Set Status: Issues found" sap:VirtualizedContainerService.HintSize="334,144.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_IssuesFound">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[out_StatusMessage]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[String.Format("Audit completed. {0} data inconsistencies detected.", totalIssues)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="ex" />
+                    </ActivityAction.Argument>
+                    <Assign DisplayName="Set Status: Read Error" sap:VirtualizedContainerService.HintSize="450,144.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_ReadError">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_StatusMessage]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Format("Unable to read Excel file. Details: {0}", ex.Message)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+              <TryCatch.Finally>
+                <Sequence DisplayName="Finally" sap2010:WorkflowViewState.IdRef="Sequence_1" />
+              </TryCatch.Finally>
+            </TryCatch>
+          </If.Else>
+        </If>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

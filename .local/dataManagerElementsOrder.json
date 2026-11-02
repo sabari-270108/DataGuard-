@@ -1,0 +1,86 @@
+{
+  "Workflows": [
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "reportPath&Sequence_Audit",
+        "lowRisk&Sequence_Main",
+        "mediumRisk&Sequence_Main",
+        "highRisk&Sequence_Main",
+        "duplicates&Sequence_Main",
+        "missingRecords&Sequence_Main",
+        "mismatches&Sequence_Main",
+        "exactMatches&Sequence_Main",
+        "variable1&Sequence_Main"
+      ],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/GenerateReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtReport&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/CompareData.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "variable&Sequence_1",
+        "variable1&Sequence_1",
+        "foundRow&Sequence_1",
+        "valueB&Sequence_1",
+        "valueA&Sequence_1",
+        "columnB&Sequence_1",
+        "columnA&Sequence_1",
+        "mapping&Sequence_1",
+        "mappingPairs&Sequence_1",
+        "keyB&Sequence_1",
+        "keyA&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": null,
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/ReadMaster.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": null,
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/ReadHR.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": null,
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Workflows/CalculateSummary.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "totalRecords&Sequence_CalcSummary"
+      ],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    }
+  ]
+}

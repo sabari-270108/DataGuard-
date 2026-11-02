@@ -1,0 +1,119 @@
+{
+  "name": "DataGuard",
+  "projectId": "03057bce-3f9f-4653-b32c-e0ed288f0f19",
+  "description": "DataGuard - Intelligent Cross-System Data Integrity Auditor. Compares business data across two Excel sources (Master and HR), detects mismatches, missing records and duplicates, assigns severity, and produces an audit report.",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "[3.6.1]",
+    "UiPath.GSuite.Activities": "[3.11.10]",
+    "UiPath.MicrosoftOffice365.Activities": "[3.11.11]",
+    "UiPath.System.Activities": "[24.10.4]",
+    "UiPath.Testing.Activities": "[24.10.2]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "2026.0.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "saveToCloud": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "a0a0a0a0-1111-2222-3333-444444444444",
+      "input": [
+        {
+          "name": "in_MasterFilePath",
+          "type": "System.String",
+          "required": true,
+          "hasDefault": false
+        },
+        {
+          "name": "in_HRFilePath",
+          "type": "System.String",
+          "required": true,
+          "hasDefault": false
+        }
+      ],
+      "output": [
+        {
+          "name": "out_ResultDataTable",
+          "type": "System.Data.DataTable"
+        },
+        {
+          "name": "out_TotalRecords",
+          "type": "System.Int32"
+        },
+        {
+          "name": "out_ExactMatches",
+          "type": "System.Int32"
+        },
+        {
+          "name": "out_Mismatches",
+          "type": "System.Int32"
+        },
+        {
+          "name": "out_MissingRecords",
+          "type": "System.Int32"
+        },
+        {
+          "name": "out_Duplicates",
+          "type": "System.Int32"
+        },
+        {
+          "name": "out_HighRisk",
+          "type": "System.Int32"
+        },
+        {
+          "name": "out_MediumRisk",
+          "type": "System.Int32"
+        },
+        {
+          "name": "out_LowRisk",
+          "type": "System.Int32"
+        },
+        {
+          "name": "out_StatusMessage",
+          "type": "System.String"
+        },
+        {
+          "name": "out_ReportPath",
+          "type": "System.String"
+        }
+      ]
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Windows"
+}

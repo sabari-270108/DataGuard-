@@ -1,0 +1,101 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "a0a0a0a0-1111-2222-3333-444444444444",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_ConfigPath": {
+            "type": "string"
+          },
+          "in_SourceBPath": {
+            "type": "string",
+            "x-default-expression": "\"C:\\Users\\Dell\\Documents\\UiPath\\DataGuard\\Input\\HR_Data.xlsx\"",
+            "default": "C:\\Users\\Dell\\Documents\\UiPath\\DataGuard\\Input\\HR_Data.xlsx"
+          },
+          "in_SourceAPath": {
+            "type": "string",
+            "x-default-expression": "\"C:\\Users\\Dell\\Documents\\UiPath\\DataGuard\\Input\\Master.xlsx\"",
+            "default": "C:\\Users\\Dell\\Documents\\UiPath\\DataGuard\\Input\\Master.xlsx"
+          },
+          "in_FieldMappings": {
+            "type": "string",
+            "x-default-expression": "\"Name=Name;Salary=Salary;Phone=Phone\"",
+            "default": "Name=Name;Salary=Salary;Phone=Phone"
+          },
+          "in_KeyColumnB": {
+            "type": "string",
+            "x-default-expression": "\"EmployeeID\"",
+            "default": "EmployeeID"
+          },
+          "in_KeyColumnA": {
+            "type": "string",
+            "x-default-expression": "\"EmployeeID\"",
+            "default": "EmployeeID"
+          }
+        },
+        "required": []
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "out_ResultDataTable": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "out_TotalRecords": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "out_ExactMatches": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "out_Mismatches": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "out_MissingRecords": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "out_Duplicates": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "out_HighRisk": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "out_MediumRisk": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "out_LowRisk": {
+            "type": "integer",
+            "minimum": -2147483648,
+            "maximum": 2147483647
+          },
+          "out_StatusMessage": {
+            "type": "string"
+          },
+          "out_ReportPath": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "Version": "1.0",
+  "IncludeWorkflows": [
+    "Main.xaml",
+    "Workflows/ReadMaster.xaml",
+    "Workflows/ReadHR.xaml",
+    "Workflows/CompareData.xaml",
+    "Workflows/CalculateSummary.xaml",
+    "Workflows/GenerateReport.xaml"
+  ]
+}

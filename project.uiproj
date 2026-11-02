@@ -1,0 +1,6 @@
+{
+  "Name": "DataGuard",
+  "ProjectType": "Process",
+  "Description": "DataGuard - Intelligent Cross-System Data Integrity Auditor. Compares business data across two Excel sources (Master and HR), detects mismatches, missing records and duplicates, assigns severity, and produces an audit report.",
+  "MainFile": "Main.xaml"
+}
