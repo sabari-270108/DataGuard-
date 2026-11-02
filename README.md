@@ -235,3 +235,4 @@ anything as an "unknown activity":
   `TryCatch` ✅
 - Excel files as the only data source ✅
 - No Flask, no Python, no external API/database, no LLM calls ✅
+# DataGuard-
